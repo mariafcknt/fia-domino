@@ -1,34 +1,25 @@
 import java.util.List;
-import java.util.Arrays;
-import java.util.ArrayList;
 
-public class JogadorIA extends Jogador {
-    private List<Pedra> pedrasIA;
+public class JogadorIA {
+    private Jogador jogadorBase; // Composição: usar um objeto Jogador
 
     public JogadorIA() {
-        this.pedrasIA = new ArrayList<>();
+        jogadorBase = new Jogador(); // Cria uma instância de Jogador
     }
 
-    @Override
+    // Chamar métodos de Jogador
     public void receberPedra(Pedra pedra) {
-    // Adicionar a pedra à lista de pedras do jogadorIA
-    getPedrasIA().add(pedra);
+        jogadorBase.receberPedra(pedra);
     }
 
-    public List<Pedra> getPedrasIA() {
-        return pedrasIA;
+    public List<Pedra> getPedras() {
+        return jogadorBase.getPedras();
     }
 
-
-    public void setPedrasIA(List<Pedra> pedrasIA) {
-        this.pedrasIA = pedrasIA;
+    public void printPedras() {
+        jogadorBase.printPedras();
     }
 
-    public List<Pedra> printPedrasIA() {
-        return pedrasIA;
-    }
-
-    public void receberPedraIA(Pedra pedra) {
-        pedrasIA.add(pedra);
-    }
+    // Outros métodos exclusivos de JogadorIA
+    // Adicione aqui os métodos exclusivos da IA
 }

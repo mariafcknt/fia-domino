@@ -3,26 +3,28 @@ import java.util.List;
 public class App {
     public static void main(String[] args) throws Exception {
         Jogo jogo = new Jogo();
-
         jogo.iniciarJogo();
-
-        // System.out.println(jogo.getJogador().getPedras());
 
         // Exibindo as pedras
         System.out.println(" ");
         System.out.println("Pedras do player:");
-        List<Pedra> pedrasDoJogador = jogo.getJogadorIA().printPedras();
+        // Chame o método para obter a lista de pedras do jogador
+        List<Pedra> pedrasDoJogador = jogo.getJogador().getPedras();
         for (Pedra pedra : pedrasDoJogador) {
             System.out.println(pedra.getNome());
         }
+
         System.out.println(" ");
         System.out.println("Pedras da IA:");
-        List<Pedra> pedrasDoJogadorIA = jogo.getJogadorIA().printPedrasIA();
+        // Chame o método para obter a lista de pedras do jogadorIA
+        List<Pedra> pedrasDoJogadorIA = jogo.getJogadorIA().getPedras();
         for (Pedra pedra : pedrasDoJogadorIA) {
             System.out.println(pedra.getNome());
         }
 
-        // System.out.println(pedras[27].getNome());
+        System.out.println(" ");
+        jogo.printPedras();
+
     }
 
 }

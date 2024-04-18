@@ -36,13 +36,12 @@ public class Jogo {
     }
 
     public void distribuirPedras() {
+        int numPedras = pedras.size();
         for (int i = 0; i < 14; i++) {
             if (i % 2 == 0) {
-                jogador.receberPedra(pedras.get(0));
-                pedras.remove(0);
+                jogador.receberPedra(pedras.remove(0)); // Jogador recebe uma pedra
             } else {
-                jogadorIA.receberPedraIA(pedras.get(0));
-                pedras.remove(0);
+                jogadorIA.receberPedra(pedras.remove(0)); // JogadorIA recebe uma pedra
             }
         }
     //}
