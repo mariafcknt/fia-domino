@@ -41,7 +41,7 @@ public class Jogo {
                 jogador.receberPedra(pedras.get(0));
                 pedras.remove(0);
             } else {
-                jogadorIA.receberPedra(pedras.get(0));
+                jogadorIA.receberPedraIA(pedras.get(0));
                 pedras.remove(0);
             }
         }

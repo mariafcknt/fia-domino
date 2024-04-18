@@ -19,7 +19,16 @@ public class JogadorIA extends Jogador {
         return pedrasIA;
     }
 
+
     public void setPedrasIA(List<Pedra> pedrasIA) {
         this.pedrasIA = pedrasIA;
+    }
+
+    public List<Pedra> printPedrasIA() {
+        return pedrasIA;
+    }
+
+    public void receberPedraIA(Pedra pedra) {
+        pedrasIA.add(pedra);
     }
 }

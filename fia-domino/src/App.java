@@ -17,7 +17,7 @@ public class App {
         }
         System.out.println(" ");
         System.out.println("Pedras da IA:");
-        List<Pedra> pedrasDoJogadorIA = jogo.getJogadorIA().printPedras();
+        List<Pedra> pedrasDoJogadorIA = jogo.getJogadorIA().printPedrasIA();
         for (Pedra pedra : pedrasDoJogadorIA) {
             System.out.println(pedra.getNome());
         }
