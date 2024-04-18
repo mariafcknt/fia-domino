@@ -44,21 +44,27 @@ public class Jogo {
                 jogadorIA.receberPedra(pedras.remove(0)); // JogadorIA recebe uma pedra
             }
         }
-    //}
-
-        /*for (int j = 0; j < 7; j++) {
-            jogadorIA.receberPedra(pedras.get(j));
-            pedras.remove(j);
-        }
-
-        /*System.out.println(" ");
-        System.out.println("Pedras depois da distribuição: ");
-        printPedras();*/
     }
 
     //printar as pedras
     public void printPedras() {
         for (Pedra pedra : pedras) {
+            System.out.println(pedra.getNome());
+        }
+    }
+
+    public void printPedrasJogadores() {
+        System.out.println("Pedras do player:");
+        List<Pedra> pedrasDoJogador = getJogador().getPedras();
+        for (Pedra pedra : pedrasDoJogador) {
+            System.out.println(pedra.getNome());
+        }
+
+        System.out.println(" ");
+        
+        System.out.println("Pedras da IA:");
+        List<Pedra> pedrasDoJogadorIA = getJogadorIA().getPedras();
+        for (Pedra pedra : pedrasDoJogadorIA) {
             System.out.println(pedra.getNome());
         }
     }
