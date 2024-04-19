@@ -5,11 +5,13 @@ import java.util.Arrays;
 
 public class Jogo {
     private List<Pedra> pedras = new ArrayList<>();
+    private List<Pedra> pedrasSobrando = new ArrayList<>();
     Jogador jogador = new Jogador();
     JogadorIA jogadorIA = new JogadorIA();
 
     public void iniciarJogo() {
         Pedra[] todasPedras = new Pedra[28];
+        Pedra[] pedrasSobrando = new Pedra[14];
         
         //Criar as pedras
         int index = 0;
@@ -84,6 +86,14 @@ public class Jogo {
 
     public void setJogadorIA(JogadorIA jogadorIA) {
         this.jogadorIA = jogadorIA;
+    }
+
+    public List<Pedra> getPedrasSobrando() {
+        return pedrasSobrando;
+    }
+
+    public void setPedrasSobrando(List<Pedra> pedrasSobrando) {
+        this.pedrasSobrando = pedrasSobrando;
     }
 
     
