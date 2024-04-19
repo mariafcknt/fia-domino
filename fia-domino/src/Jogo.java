@@ -8,6 +8,8 @@ public class Jogo {
     private List<Pedra> pedrasSobrando = new ArrayList<>();
     Jogador jogador = new Jogador();
     JogadorIA jogadorIA = new JogadorIA();
+    Tabuleiro tabuleiro = new Tabuleiro();
+  
 
     public void iniciarJogo() {
         Pedra[] todasPedras = new Pedra[28];
@@ -35,6 +37,8 @@ public class Jogo {
 
         //Distribuir as pedras embaralhadas aos jogadores
         distribuirPedras();
+
+
     }
 
     public void distribuirPedras() {
@@ -46,7 +50,15 @@ public class Jogo {
                 jogadorIA.receberPedra(pedras.remove(0)); // JogadorIA recebe uma pedra
             }
         }
+        //primeiroAJogar();
     }
+
+    /*public void primeiroAJogar(){
+        List<Pedra> pedrasDoJogador = getJogador().getPedras();
+        for (Pedra pedra : pedrasDoJogador) {
+            if (pedrasDoJogador[pedra] == );
+        }
+    }*/
 
     //printar as pedras
     public void printPedras() {
@@ -70,6 +82,7 @@ public class Jogo {
             System.out.println(pedra.getNome());
         }
     }
+
 
     //Getters e setters
     public Jogador getJogador() {

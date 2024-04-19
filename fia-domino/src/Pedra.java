@@ -1,12 +1,12 @@
 public class Pedra {
     private String nome;
-    private int ladoDireito;
-    private int ladoEsquerdo;
+    private int numDireito;
+    private int numEsquerdo;
 
     public Pedra(String nome, int ladoDireito, int ladoEsquerdo) {
         this.nome = nome;
-        this.ladoDireito = ladoDireito;
-        this.ladoEsquerdo = ladoEsquerdo;
+        this.numDireito = ladoDireito;
+        this.numEsquerdo = ladoEsquerdo;
     }
 
     public String getNome() {
@@ -17,22 +17,20 @@ public class Pedra {
         this.nome = nome;
     }
 
-    public int getLadoDireito() {
-        return ladoDireito;
+    public int getNumDireito() {
+        return numDireito;
     }
 
-    public void setLadoDireito(int ladoDireito) {
-        this.ladoDireito = ladoDireito;
+    public void setNumDireito(int ladoDireito) {
+        this.numDireito = ladoDireito;
     }
 
-    public int getLadoEsquerdo() {
-        return ladoEsquerdo;
+    public int getNumEsquerdo() {
+        return numEsquerdo;
     }
 
-    public void setLadoEsquerdo(int ladoEsquerdo) {
-        this.ladoEsquerdo = ladoEsquerdo;
+    public void setNumEsquerdo(int ladoEsquerdo) {
+        this.numEsquerdo = ladoEsquerdo;
     }
-
-    
 
 }
