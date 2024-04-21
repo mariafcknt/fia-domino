@@ -29,6 +29,8 @@ public class Tabuleiro {
         return false;
     }
 
+    // Getters e setters
+
     public int getLadoDireitoTabuleiro() {
         return ladoDireitoTabuleiro;
     }
@@ -52,7 +54,5 @@ public class Tabuleiro {
     public void setPedrasTabuleiro(List<Pedra> pedrasTabuleiro) {
         this.pedrasTabuleiro = pedrasTabuleiro;
     }
-
-    // Getters e setters
 
 }

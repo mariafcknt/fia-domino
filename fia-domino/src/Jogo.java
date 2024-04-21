@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Arrays; 
+import java.util.Arrays;
 
 public class Jogo {
     private List<Pedra> pedras = new ArrayList<>();
@@ -9,18 +9,20 @@ public class Jogo {
     Jogador jogador = new Jogador();
     JogadorIA jogadorIA = new JogadorIA();
     Tabuleiro tabuleiro = new Tabuleiro();
-  
+    Controle controle = new Controle(jogador, jogadorIA);
 
-    public void iniciarJogo() {
+
+    public void iniciar() {
         Pedra[] todasPedras = new Pedra[28];
         Pedra[] pedrasSobrando = new Pedra[14];
-        
-        //Criar as pedras
+
+        // Criar as pedras
         int index = 0;
         for (int i = 0; i <= 6; i++) {
             for (int j = i; j <= 6; j++) {
                 Pedra pedra = new Pedra("[" + i + "|" + j + "]", i, j);
                 todasPedras[index] = pedra;
+
                 index++;
             }
         }
@@ -33,11 +35,10 @@ public class Jogo {
         pedras.addAll(pedrasEmbaralhadas);
 
         // Exibindo as pedras
-        //printPedras();
+        // printPedras();
 
-        //Distribuir as pedras embaralhadas aos jogadores
+        // Distribuir as pedras embaralhadas aos jogadores
         distribuirPedras();
-
 
     }
 
@@ -50,17 +51,13 @@ public class Jogo {
                 jogadorIA.receberPedra(pedras.remove(0)); // JogadorIA recebe uma pedra
             }
         }
-        //primeiroAJogar();
+        // primeiroAJogar();
     }
 
-    /*public void primeiroAJogar(){
-        List<Pedra> pedrasDoJogador = getJogador().getPedras();
-        for (Pedra pedra : pedrasDoJogador) {
-            if (pedrasDoJogador[pedra] == );
-        }
-    }*/
+    
+     
 
-    //printar as pedras
+    // printar as pedras
     public void printPedras() {
         for (Pedra pedra : pedras) {
             System.out.println(pedra.getNome());
@@ -75,7 +72,7 @@ public class Jogo {
         }
 
         System.out.println(" ");
-        
+
         System.out.println("Pedras da IA:");
         List<Pedra> pedrasDoJogadorIA = getJogadorIA().getPedras();
         for (Pedra pedra : pedrasDoJogadorIA) {
@@ -83,8 +80,7 @@ public class Jogo {
         }
     }
 
-
-    //Getters e setters
+    // Getters e setters
     public Jogador getJogador() {
         return jogador;
     }
@@ -109,5 +105,4 @@ public class Jogo {
         this.pedrasSobrando = pedrasSobrando;
     }
 
-    
 }
