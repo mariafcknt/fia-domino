@@ -27,8 +27,15 @@ public class App {
                 
                 switch (opcao) {
                     case 1: {
+                        int numPedra;
                         System.out.println("Escolha uma peça da sua mão para jogar: ");
                         jogo.jogador.printPedrasComIndices();
+                        numPedra = scanner.nextInt();
+                        jogo.jogador.escolherPedra(numPedra);
+                        jogo.jogar(jogo.jogador.getPedraAJogar(), "Esquerdo");
+                        System.out.println("\n Tabuleiro: ");
+                        jogo.tabuleiro.printTabuleiro();
+                        //jogo.jogador.printPedras();
                         // jogo.printPedrasJogadores();
 
                         // jogo.tabuleiro.adicionarPedraEsquerda()

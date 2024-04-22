@@ -6,6 +6,7 @@ import java.util.Arrays;
 public class Jogador {
     private String nome;
     private boolean suaRodada;
+    private Pedra pedraAJogar;
 
     // private Pedra[] pedras;
     private List<Pedra> pedras;
@@ -34,8 +35,21 @@ public class Jogador {
         // Itera pelas pedras do jogador e imprime cada pedra com seu índice
         for (int i = 0; i < pedras.size(); i++) {
             // Mostra o índice da pedra seguido pelo nome da pedra
-            System.out.println(i + ": " + pedras.get(i).getNome());
+            System.out.println(i + 1 + ": " + pedras.get(i).getNome());
         }
+    }
+
+    public void escolherPedra(int posicaoPedra){
+        for (int i = 0; i < pedras.size(); i++) {
+            if (i + 1 == posicaoPedra){
+                //System.out.println("Pedra a sair: " + (i + 1) + "\n");
+                pedraAJogar = pedras.get(i);
+                System.out.println("Pedra a sair: " + pedras.get(i).getNome());
+            }
+        }    
+        removerPedra(pedraAJogar);
+        System.out.println(" ");
+        printPedras();
     }
     
 
@@ -55,4 +69,14 @@ public class Jogador {
     public void setPedras(List<Pedra> pedras) {
         this.pedras = pedras;
     }
+
+    public Pedra getPedraAJogar() {
+        return pedraAJogar;
+    }
+
+    public void setPedraAJogar(Pedra pedraAJogar) {
+        this.pedraAJogar = pedraAJogar;
+    }
+
+    
 }

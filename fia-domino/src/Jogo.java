@@ -54,15 +54,13 @@ public class Jogo {
     }
 
     public void jogar(Pedra pedra, String lado){
-        if (lado == "Esquerdo") {
+        if (lado == "Esquerdo"){
             tabuleiro.adicionarPedraEsquerda(pedra);
-            jogador.removerPedra(pedra);
-            controle.alternarJogadorDaVez();
         } else {
             tabuleiro.adicionarPedraDireita(pedra);
-            controle.alternarJogadorDaVez();
         }
     }
+
 
     // printar as pedras
     public void printPedras() {
