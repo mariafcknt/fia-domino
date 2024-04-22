@@ -29,6 +29,12 @@ public class Tabuleiro {
         return false;
     }
 
+    public void printTabuleiro() {
+        for (Pedra pedra : pedrasTabuleiro) {
+            System.out.println(pedra.getNome());
+        }
+    }
+
     // Getters e setters
 
     public int getLadoDireitoTabuleiro() {

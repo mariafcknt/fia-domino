@@ -5,11 +5,14 @@ import java.util.Arrays;
 
 public class Jogador {
     private String nome;
+    private boolean suaRodada;
+
     // private Pedra[] pedras;
     private List<Pedra> pedras;
 
     public Jogador() {
         this.pedras = new ArrayList<>();
+        this.nome = "Jogador";
     }
 
     public void receberPedra(Pedra pedra) {
@@ -17,9 +20,9 @@ public class Jogador {
     }
 
     //printar as pedras do jogador
-    public List<Pedra> printPedras() {
-        return pedras;
-    }
+    /*public void printPedras() {
+        jogo
+    }*/
 
     // Getters e setters
     public String getNome() {

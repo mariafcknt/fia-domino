@@ -7,7 +7,9 @@ public class Jogo {
     private List<Pedra> pedras = new ArrayList<>();
     private List<Pedra> pedrasSobrando = new ArrayList<>();
     Jogador jogador = new Jogador();
+
     JogadorIA jogadorIA = new JogadorIA();
+
     Tabuleiro tabuleiro = new Tabuleiro();
     Controle controle = new Controle(jogador, jogadorIA);
 
@@ -22,7 +24,6 @@ public class Jogo {
             for (int j = i; j <= 6; j++) {
                 Pedra pedra = new Pedra("[" + i + "|" + j + "]", i, j);
                 todasPedras[index] = pedra;
-
                 index++;
             }
         }
@@ -54,8 +55,6 @@ public class Jogo {
         // primeiroAJogar();
     }
 
-    
-     
 
     // printar as pedras
     public void printPedras() {
@@ -65,7 +64,7 @@ public class Jogo {
     }
 
     public void printPedrasJogadores() {
-        System.out.println("Pedras do player:");
+        System.out.println("Pedras do jogador:");
         List<Pedra> pedrasDoJogador = getJogador().getPedras();
         for (Pedra pedra : pedrasDoJogador) {
             System.out.println(pedra.getNome());
@@ -73,11 +72,11 @@ public class Jogo {
 
         System.out.println(" ");
 
-        System.out.println("Pedras da IA:");
+        /*System.out.println("Pedras da IA:");
         List<Pedra> pedrasDoJogadorIA = getJogadorIA().getPedras();
         for (Pedra pedra : pedrasDoJogadorIA) {
             System.out.println(pedra.getNome());
-        }
+        }*/
     }
 
     // Getters e setters

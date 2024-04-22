@@ -1,28 +1,30 @@
 public class Controle {
-    private Jogador jogadorDaVez;
-    private Jogador jogadorIA;
+    private boolean jogadorDaVez; // true se jogador humano está com a vez, false se jogador IA está com a vez
+    private JogadorIA jogadorIA;
     private Jogador jogador;
 
-
-    public Controle(Jogador jogadorIA, JogadorIA jogadorIA2) {
+    public Controle(Jogador jogador, JogadorIA jogadorIA) {
         this.jogadorIA = jogadorIA;
-        this.jogador = jogadorIA2;
+        this.jogador = jogador;
     }
 
-    /*public Jogador jogadorInicial(){
+    // Método para determinar qual jogador deve começar o jogo
+    public Object jogadorInicial() {
         int maiorDuplo = -1;
-        Jogador jogadorInicial = null;
+        Object jogadorInicial = null; // Pode ser Jogador ou JogadorIA
 
+        // Verifica as pedras do jogador humano para encontrar o maior duplo
         for (Pedra pedra : jogador.getPedras()) {
             if (pedra.getNumDireito() == pedra.getNumEsquerdo()) {
                 int valorDuplo = pedra.getNumDireito();
                 if (valorDuplo > maiorDuplo) {
                     maiorDuplo = valorDuplo;
-                    jogadorInicial =  jogador;
+                    jogadorInicial = jogador;
                 }
             }
         }
 
+        // Verifica as pedras do jogador IA para encontrar o maior duplo
         for (Pedra pedra : jogadorIA.getPedras()) {
             if (pedra.getNumDireito() == pedra.getNumEsquerdo()) {
                 int valorDuplo = pedra.getNumDireito();
@@ -32,5 +34,56 @@ public class Controle {
                 }
             }
         }
-    }*/
+
+        // Definir quem é o jogador inicial com base no maior duplo encontrado
+        if (jogadorInicial == jogador) {
+            jogadorDaVez = true; // Jogador humano começa jogando
+        } else if (jogadorInicial == jogadorIA) {
+            jogadorDaVez = false; // Jogador IA começa jogando
+        }
+
+        printJogadorDaVez();
+
+
+        return jogadorInicial; // Retorna o jogador inicial (pode ser Jogador ou JogadorIA)
+    }
+
+    public void jogar() {
+    
+    }
+
+    public void printJogadorDaVez() {
+        if (isJogadorDaVez()) {
+            System.out.println("Rodada do Jogador");
+        } else {
+            System.out.println("Rodada da IA");
+        }
+    }
+
+    // Método para alternar a vez do jogador
+    public void alternarJogadorDaVez() {
+        jogadorDaVez = !jogadorDaVez;
+    }
+
+    // Getters e setters
+
+    public boolean isJogadorDaVez() {
+        return jogadorDaVez;
+    }
+
+    public JogadorIA getJogadorIA() {
+        return jogadorIA;
+    }
+
+    public void setJogadorIA(JogadorIA jogadorIA) {
+        this.jogadorIA = jogadorIA;
+    }
+
+    public Jogador getJogador() {
+        return jogador;
+    }
+
+    public void setJogador(Jogador jogador) {
+        this.jogador = jogador;
+    }
 }
