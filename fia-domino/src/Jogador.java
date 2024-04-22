@@ -19,12 +19,25 @@ public class Jogador {
         pedras.add(pedra);
     }
 
+    public void removerPedra(Pedra pedra){
+        pedras.remove(pedra);
+    }
+
     //printar as pedras do jogador
     public void printPedras() {
         for (Pedra pedra : pedras) {
             System.out.println(pedra.getNome());
         }
     }
+
+    public void printPedrasComIndices() {
+        // Itera pelas pedras do jogador e imprime cada pedra com seu índice
+        for (int i = 0; i < pedras.size(); i++) {
+            // Mostra o índice da pedra seguido pelo nome da pedra
+            System.out.println(i + ": " + pedras.get(i).getNome());
+        }
+    }
+    
 
     // Getters e setters
     public String getNome() {

@@ -6,7 +6,7 @@ public class App {
         Jogo jogo = new Jogo();
         jogo.iniciar();
 
-        //jogo.printPedrasJogadores();
+        // jogo.printPedrasJogadores();
 
         System.out.println(" ");
 
@@ -14,47 +14,54 @@ public class App {
         Object jogadorInicial = jogo.controle.jogadorInicial();
         showJogadorInicial(jogadorInicial);
 
-        
-        /*if (jogo.controle.is*/
-        do {
+        while (jogo.controle.isPartidaEmAndamento()) {
             jogo.tabuleiro.printTabuleiro();
-            showMenu(jogo);
-            int opcao = scanner.nextInt();
+            jogo.controle.printJogadorDaVez();
+            System.out.println("");
+            int opcao = 0;
 
-            switch (opcao) {
-                case 1: {
-                    System.out.println("Escolha uma peça da sua mão para jogar: ");
-                    
-                    jogo.printPedrasJogadores();
-                    
-                    //jogo.tabuleiro.adicionarPedraEsquerda()
-                    break;
+            if (jogo.controle.isJogadorDaVez()) {
+                showMenu(jogo);
+                opcao = scanner.nextInt();
+                System.out.println(" ");
+                
+                switch (opcao) {
+                    case 1: {
+                        System.out.println("Escolha uma peça da sua mão para jogar: ");
+                        jogo.jogador.printPedrasComIndices();
+                        // jogo.printPedrasJogadores();
+
+                        // jogo.tabuleiro.adicionarPedraEsquerda()
+                        break;
+                    }
+                    case 2: {
+
+                        break;
+                    }
+                    case 3: {
+
+                        break;
+                    }
+                    case 4: {
+                        // jogo.controle.setJogadorDaVez(false);
+                        jogo.controle.alternarJogadorDaVez();
+                        break;
+                    }
+                    case 5: {
+                        jogo.controle.setPartidaEmAndamento(false);
+                        break;
+                    }
+                    default:
+                        System.out.println("Opção inválida!");
                 }
-                case 2: {
-                  
-                    break;
-                }
-                case 3: {
-                  
-                    break;
-                }
-                case 4: {
-                   
-                    break;
-                }
-                case 5: {
-                   // System.out.println(list.toString());
-                    break;
-                }
-                default:
-                    System.out.println("Opção inválida!");
+            } else {
+
+                jogo.controle.alternarJogadorDaVez();
             }
-        } while (jogo.controle.isJogadorDaVez() || opcao != 5);
-        scanner.close();
         }
-    
-        
-        
+        scanner.close();
+    }
+
     public static void showMenu(Jogo jogo) {
         System.out.println("Pedras do jogador: ");
         jogo.jogador.printPedras();
@@ -66,14 +73,13 @@ public class App {
         System.out.println("5 - Desistir");
     }
 
-    public static void showJogadorInicial(Object jogadorInicial){
+    public static void showJogadorInicial(Object jogadorInicial) {
         if (jogadorInicial instanceof Jogador) {
             Jogador jogador = (Jogador) jogadorInicial;
-            System.out.println("Jogador inicial: " + jogador.getNome()  + "\n");
+            System.out.println("Jogador inicial: " + jogador.getNome() + "\n");
         } else if (jogadorInicial instanceof JogadorIA) {
             JogadorIA jogadorIA = (JogadorIA) jogadorInicial;
             System.out.println("Jogador inicial: " + jogadorIA.getNome() + "\n");
         }
-
     }
 }

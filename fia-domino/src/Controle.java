@@ -2,6 +2,7 @@ public class Controle {
     private boolean jogadorDaVez; // true se jogador humano está com a vez, false se jogador IA está com a vez
     private JogadorIA jogadorIA;
     private Jogador jogador;
+    private boolean partidaEmAndamento;
 
     public Controle(Jogador jogador, JogadorIA jogadorIA) {
         this.jogadorIA = jogadorIA;
@@ -42,7 +43,7 @@ public class Controle {
             jogadorDaVez = false; // Jogador IA começa jogando
         }
 
-        printJogadorDaVez();
+        //printJogadorDaVez();
 
         return jogadorInicial; // Retorna o jogador inicial (pode ser Jogador ou JogadorIA)
     }
@@ -85,4 +86,17 @@ public class Controle {
     public void setJogador(Jogador jogador) {
         this.jogador = jogador;
     }
+
+    public boolean isPartidaEmAndamento() {
+        return partidaEmAndamento;
+    }
+
+    public void setPartidaEmAndamento(boolean partidaEmAndamento) {
+        this.partidaEmAndamento = partidaEmAndamento;
+    }
+
+    public void setJogadorDaVez(boolean jogadorDaVez) {
+        this.jogadorDaVez = jogadorDaVez;
+    }
+    
 }

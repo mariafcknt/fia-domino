@@ -7,9 +7,7 @@ public class Jogo {
     private List<Pedra> pedras = new ArrayList<>();
     private List<Pedra> pedrasSobrando = new ArrayList<>();
     Jogador jogador = new Jogador();
-
     JogadorIA jogadorIA = new JogadorIA();
-
     Tabuleiro tabuleiro = new Tabuleiro();
     Controle controle = new Controle(jogador, jogadorIA);
 
@@ -40,7 +38,7 @@ public class Jogo {
 
         // Distribuir as pedras embaralhadas aos jogadores
         distribuirPedras();
-      
+        controle.setPartidaEmAndamento(true);
     }
 
     public void distribuirPedras() {
@@ -55,6 +53,16 @@ public class Jogo {
         // primeiroAJogar();
     }
 
+    public void jogar(Pedra pedra, String lado){
+        if (lado == "Esquerdo") {
+            tabuleiro.adicionarPedraEsquerda(pedra);
+            jogador.removerPedra(pedra);
+            controle.alternarJogadorDaVez();
+        } else {
+            tabuleiro.adicionarPedraDireita(pedra);
+            controle.alternarJogadorDaVez();
+        }
+    }
 
     // printar as pedras
     public void printPedras() {
