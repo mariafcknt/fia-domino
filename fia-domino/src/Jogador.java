@@ -20,9 +20,11 @@ public class Jogador {
     }
 
     //printar as pedras do jogador
-    /*public void printPedras() {
-        jogo
-    }*/
+    public void printPedras() {
+        for (Pedra pedra : pedras) {
+            System.out.println(pedra.getNome());
+        }
+    }
 
     // Getters e setters
     public String getNome() {

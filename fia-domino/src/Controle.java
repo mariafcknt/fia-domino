@@ -44,7 +44,6 @@ public class Controle {
 
         printJogadorDaVez();
 
-
         return jogadorInicial; // Retorna o jogador inicial (pode ser Jogador ou JogadorIA)
     }
 

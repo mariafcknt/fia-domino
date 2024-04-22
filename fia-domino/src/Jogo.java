@@ -40,7 +40,7 @@ public class Jogo {
 
         // Distribuir as pedras embaralhadas aos jogadores
         distribuirPedras();
-
+      
     }
 
     public void distribuirPedras() {
@@ -72,11 +72,11 @@ public class Jogo {
 
         System.out.println(" ");
 
-        /*System.out.println("Pedras da IA:");
+        System.out.println("Pedras da IA:");
         List<Pedra> pedrasDoJogadorIA = getJogadorIA().getPedras();
         for (Pedra pedra : pedrasDoJogadorIA) {
             System.out.println(pedra.getNome());
-        }*/
+        }
     }
 
     // Getters e setters

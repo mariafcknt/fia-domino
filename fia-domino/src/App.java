@@ -6,32 +6,20 @@ public class App {
         Jogo jogo = new Jogo();
         jogo.iniciar();
 
-        // Exibindo as pedras
-        System.out.println(" ");
-
-        jogo.printPedrasJogadores();
+        //jogo.printPedrasJogadores();
 
         System.out.println(" ");
-        //jogo.printPedras();
 
         // Obter o jogador inicial
         Object jogadorInicial = jogo.controle.jogadorInicial();
+        showJogadorInicial(jogadorInicial);
 
-        // Verificar o tipo do jogador inicial
-        if (jogadorInicial instanceof Jogador) {
-            Jogador jogador = (Jogador) jogadorInicial;
-            System.out.println("Jogador inicial: " + jogador.getNome());
-        } else if (jogadorInicial instanceof JogadorIA) {
-            JogadorIA jogadorIA = (JogadorIA) jogadorInicial;
-            System.out.println("Jogador inicial: " + jogadorIA.getNome());
-        }
-
-        jogo.tabuleiro.printTabuleiro();
-
-        int opcao;
+        
+        /*if (jogo.controle.is*/
         do {
-            showMenu();
-            opcao = scanner.nextInt();
+            jogo.tabuleiro.printTabuleiro();
+            showMenu(jogo);
+            int opcao = scanner.nextInt();
 
             switch (opcao) {
                 case 1: {
@@ -61,11 +49,16 @@ public class App {
                 default:
                     System.out.println("Opção inválida!");
             }
-        } while (opcao != 5);
+        } while (jogo.controle.isJogadorDaVez() || opcao != 5);
         scanner.close();
-    }
-
-    public static void showMenu() {
+        }
+    
+        
+        
+    public static void showMenu(Jogo jogo) {
+        System.out.println("Pedras do jogador: ");
+        jogo.jogador.printPedras();
+        System.out.println("\nEscolha uma opção: ");
         System.out.println("1 - <= Jogar no lado esquerdo");
         System.out.println("2 - Jogar lado direito =>");
         System.out.println("3 - Comprar");
@@ -73,6 +66,14 @@ public class App {
         System.out.println("5 - Desistir");
     }
 
-        // System.out.println(jogo.controle.printJogadorDaVez());
+    public static void showJogadorInicial(Object jogadorInicial){
+        if (jogadorInicial instanceof Jogador) {
+            Jogador jogador = (Jogador) jogadorInicial;
+            System.out.println("Jogador inicial: " + jogador.getNome()  + "\n");
+        } else if (jogadorInicial instanceof JogadorIA) {
+            JogadorIA jogadorIA = (JogadorIA) jogadorInicial;
+            System.out.println("Jogador inicial: " + jogadorIA.getNome() + "\n");
+        }
 
+    }
 }
