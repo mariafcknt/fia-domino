@@ -36,16 +36,13 @@ public class Controle {
             }
         }
 
-        // Definir quem é o jogador inicial com base no maior duplo encontrado
         if (jogadorInicial == jogador) {
-            jogadorDaVez = true; // Jogador humano começa jogando
+            jogadorDaVez = true; 
         } else if (jogadorInicial == jogadorIA) {
-            jogadorDaVez = false; // Jogador IA começa jogando
+            jogadorDaVez = false;
         }
 
-        //printJogadorDaVez();
-
-        return jogadorInicial; // Retorna o jogador inicial (pode ser Jogador ou JogadorIA)
+        return jogadorInicial; 
     }
 
     public void jogar() {

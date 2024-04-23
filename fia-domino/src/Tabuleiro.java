@@ -88,7 +88,6 @@ public class Tabuleiro {
         System.out.println("---------------\n");
     }
     
-
     // Getters e setters
 
     public int getLadoDireitoTabuleiro() {

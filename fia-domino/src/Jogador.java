@@ -20,15 +20,16 @@ public class Jogador {
         pedras.add(pedra);
     }
 
-    public void removerPedra(Pedra pedra){
+    public void removerPedra(Pedra pedra) {
         pedras.remove(pedra);
     }
 
-    //printar as pedras do jogador
+    // printar as pedras do jogador
     public void printPedras() {
         for (Pedra pedra : pedras) {
-            System.out.println(pedra.getNome());
+            System.out.print(pedra.getNome() + " ");
         }
+        System.out.println();
     }
 
     public void printPedrasComIndices() {
@@ -39,18 +40,17 @@ public class Jogador {
         }
     }
 
-    public void escolherPedra(int posicaoPedra){
+    public void escolherPedra(int posicaoPedra) {
         for (int i = 0; i < pedras.size(); i++) {
-            if (i + 1 == posicaoPedra){
-                //System.out.println("Pedra a sair: " + (i + 1) + "\n");
+            if (i + 1 == posicaoPedra) {
+                // System.out.println("Pedra a sair: " + (i + 1) + "\n");
                 pedraAJogar = pedras.get(i);
-                //System.out.println("Pedra a sair: " + pedras.get(i).getNome());
+                // System.out.println("Pedra a sair: " + pedras.get(i).getNome());
             }
-        }    
+        }
         removerPedra(pedraAJogar);
         System.out.println(" ");
     }
-    
 
     // Getters e setters
     public String getNome() {
@@ -77,5 +77,4 @@ public class Jogador {
         this.pedraAJogar = pedraAJogar;
     }
 
-    
 }

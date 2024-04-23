@@ -4,28 +4,20 @@ public class App {
     public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
         Jogo jogo = new Jogo();
-        jogo.iniciar();
 
-        // jogo.printPedrasJogadores();
-
-        System.out.println(" ");
-
-        // Obter o jogador inicial
         Object jogadorInicial = jogo.controle.jogadorInicial();
-        //showJogadorInicial(jogadorInicial);
 
         int i = 0;
-
         while (jogo.controle.isPartidaEmAndamento()) {
             jogo.controle.printJogadorDaVez();
-            System.out.println("--- Rodada " + (i + 1) + " ---\n");
+            // System.out.println("--- Rodada " + (i + 1) + " ---\n");
             jogo.tabuleiro.printTabuleiro();
             int opcao = 0;
 
             if (jogo.controle.isJogadorDaVez()) {
                 showMenu(jogo);
                 opcao = scanner.nextInt();
-                
+
                 switch (opcao) {
                     case 1: {
                         int numPedra;
@@ -50,11 +42,14 @@ public class App {
                         break;
                     }
                     case 4: {
-                        // jogo.controle.setJogadorDaVez(false);
-                        jogo.controle.alternarJogadorDaVez();
+                       
                         break;
                     }
                     case 5: {
+                        jogo.controle.alternarJogadorDaVez();
+                        break;
+                    }
+                    case 6: {
                         jogo.controle.setPartidaEmAndamento(false);
                         break;
                     }
@@ -62,7 +57,7 @@ public class App {
                         System.out.println("Opção inválida!");
                 }
             } else {
-
+                jogo.jogadorIA.jogar(jogo.tabuleiro);
                 jogo.controle.alternarJogadorDaVez();
             }
             i++;
@@ -74,11 +69,12 @@ public class App {
         System.out.println("Pedras do jogador: ");
         jogo.jogador.printPedras();
         System.out.println("\nEscolha uma opção: ");
-        System.out.println("1 - <= Jogar no lado esquerdo");
-        System.out.println("2 - Jogar lado direito =>");
-        System.out.println("3 - Comprar");
-        System.out.println("4 - Passar a vez");
-        System.out.println("5 - Desistir");
+        System.out.println("1 - Jogar no lado esquerdo");
+        System.out.println("2 - Jogar lado direito");
+        System.out.println("3 - Girar pedra");
+        System.out.println("4 - Comprar");
+        System.out.println("5 - Passar a vez");
+        System.out.println("6 - Desistir");
     }
 
     public static void showJogadorInicial(Object jogadorInicial) {

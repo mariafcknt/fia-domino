@@ -11,8 +11,7 @@ public class Jogo {
     Tabuleiro tabuleiro = new Tabuleiro();
     Controle controle = new Controle(jogador, jogadorIA);
 
-
-    public void iniciar() {
+    public Jogo() {
         Pedra[] todasPedras = new Pedra[28];
         Pedra[] pedrasSobrando = new Pedra[14];
 
@@ -61,6 +60,8 @@ public class Jogo {
         } else {
             tabuleiro.adicionarPedraDireita(pedra);
         }
+
+        controle.alternarJogadorDaVez();
     }
 
 
