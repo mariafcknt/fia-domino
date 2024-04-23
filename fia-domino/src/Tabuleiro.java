@@ -19,8 +19,8 @@ public class Tabuleiro {
             return true;
         }
         System.out.println("Deu ruim!!!");
-        System.out.println(pedra.getNumDireito());
-        System.out.println(ladoEsquerdoTabuleiro);
+        System.out.println("Num direito pedra: " + pedra.getNumDireito());
+        System.out.println("Num esquerdo tabuleiro: " + ladoEsquerdoTabuleiro);
         return false;
     }
 
@@ -35,6 +35,7 @@ public class Tabuleiro {
     
 
     public void printTabuleiro() {
+        System.out.println("---------------");
         System.out.print("Tabuleiro: ");
         for (int i = 0; i < pedrasTabuleiro.size(); i++) {
             Pedra pedra = pedrasTabuleiro.get(i);
@@ -47,6 +48,7 @@ public class Tabuleiro {
         }
         // Após o loop, imprime uma nova linha
         System.out.println();
+        System.out.println("---------------\n");
     }
     
 

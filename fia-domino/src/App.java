@@ -15,8 +15,8 @@ public class App {
         showJogadorInicial(jogadorInicial);
 
         while (jogo.controle.isPartidaEmAndamento()) {
-            jogo.tabuleiro.printTabuleiro();
             jogo.controle.printJogadorDaVez();
+            jogo.tabuleiro.printTabuleiro();
             int opcao = 0;
 
             if (jogo.controle.isJogadorDaVez()) {
@@ -33,7 +33,7 @@ public class App {
                         jogo.jogar(jogo.jogador.getPedraAJogar(), "Esquerdo");
                         break;
                     }
-                    case 2: {1
+                    case 2: {
                         
                         int numPedra;
                         System.out.println("\nEscolha uma peça da sua mão para jogar: ");
