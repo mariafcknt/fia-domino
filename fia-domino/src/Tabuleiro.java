@@ -15,25 +15,40 @@ public class Tabuleiro {
         if (ladoEsquerdoTabuleiro == -1 || pedra.getNumDireito() == ladoEsquerdoTabuleiro) {
             pedrasTabuleiro.add(0, pedra);
             ladoEsquerdoTabuleiro = pedra.getNumEsquerdo();
+            System.out.println("Deu boa!!!");
             return true;
         }
+        System.out.println("Deu ruim!!!");
+        System.out.println(pedra.getNumDireito());
+        System.out.println(ladoEsquerdoTabuleiro);
         return false;
     }
 
     public boolean adicionarPedraDireita(Pedra pedra) {
         if (ladoDireitoTabuleiro == -1 || pedra.getNumEsquerdo() == ladoDireitoTabuleiro) {
-            pedrasTabuleiro.add(0, pedra);
+            pedrasTabuleiro.add(pedra); // Adiciona a pedra no final da lista
             ladoDireitoTabuleiro = pedra.getNumDireito();
             return true;
         }
         return false;
     }
+    
 
     public void printTabuleiro() {
-        for (Pedra pedra : pedrasTabuleiro) {
-            System.out.println(pedra.getNome());
+        System.out.print("Tabuleiro: ");
+        for (int i = 0; i < pedrasTabuleiro.size(); i++) {
+            Pedra pedra = pedrasTabuleiro.get(i);
+            // Imprime a pedra com seu nome
+            System.out.print(pedra.getNome());
+            // Se não for a última pedra, imprime um espaço
+            if (i < pedrasTabuleiro.size() - 1) {
+                System.out.print(" ");
+            }
         }
+        // Após o loop, imprime uma nova linha
+        System.out.println();
     }
+    
 
     // Getters e setters
 

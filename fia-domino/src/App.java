@@ -17,32 +17,30 @@ public class App {
         while (jogo.controle.isPartidaEmAndamento()) {
             jogo.tabuleiro.printTabuleiro();
             jogo.controle.printJogadorDaVez();
-            System.out.println("");
             int opcao = 0;
 
             if (jogo.controle.isJogadorDaVez()) {
                 showMenu(jogo);
                 opcao = scanner.nextInt();
-                System.out.println(" ");
                 
                 switch (opcao) {
                     case 1: {
                         int numPedra;
-                        System.out.println("Escolha uma peça da sua mão para jogar: ");
+                        System.out.println("\nEscolha uma peça da sua mão para jogar: ");
                         jogo.jogador.printPedrasComIndices();
                         numPedra = scanner.nextInt();
                         jogo.jogador.escolherPedra(numPedra);
                         jogo.jogar(jogo.jogador.getPedraAJogar(), "Esquerdo");
-                        System.out.println("\n Tabuleiro: ");
-                        jogo.tabuleiro.printTabuleiro();
-                        //jogo.jogador.printPedras();
-                        // jogo.printPedrasJogadores();
-
-                        // jogo.tabuleiro.adicionarPedraEsquerda()
                         break;
                     }
-                    case 2: {
-
+                    case 2: {1
+                        
+                        int numPedra;
+                        System.out.println("\nEscolha uma peça da sua mão para jogar: ");
+                        jogo.jogador.printPedrasComIndices();
+                        numPedra = scanner.nextInt();
+                        jogo.jogador.escolherPedra(numPedra);
+                        jogo.jogar(jogo.jogador.getPedraAJogar(), "Direito");
                         break;
                     }
                     case 3: {

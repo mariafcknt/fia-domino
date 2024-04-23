@@ -44,12 +44,11 @@ public class Jogador {
             if (i + 1 == posicaoPedra){
                 //System.out.println("Pedra a sair: " + (i + 1) + "\n");
                 pedraAJogar = pedras.get(i);
-                System.out.println("Pedra a sair: " + pedras.get(i).getNome());
+                //System.out.println("Pedra a sair: " + pedras.get(i).getNome());
             }
         }    
         removerPedra(pedraAJogar);
         System.out.println(" ");
-        printPedras();
     }
     
 

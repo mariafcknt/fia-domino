@@ -54,9 +54,9 @@ public class Controle {
 
     public void printJogadorDaVez() {
         if (isJogadorDaVez()) {
-            System.out.println("Rodada do Jogador");
+            System.out.println("\n===== Rodada do Jogador =====\n");
         } else {
-            System.out.println("Rodada da IA");
+            System.out.println("\n===== Rodada da IA =====\n");
         }
     }
 
