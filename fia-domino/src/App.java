@@ -12,10 +12,13 @@ public class App {
 
         // Obter o jogador inicial
         Object jogadorInicial = jogo.controle.jogadorInicial();
-        showJogadorInicial(jogadorInicial);
+        //showJogadorInicial(jogadorInicial);
+
+        int i = 0;
 
         while (jogo.controle.isPartidaEmAndamento()) {
             jogo.controle.printJogadorDaVez();
+            System.out.println("--- Rodada " + (i + 1) + " ---\n");
             jogo.tabuleiro.printTabuleiro();
             int opcao = 0;
 
@@ -30,17 +33,16 @@ public class App {
                         jogo.jogador.printPedrasComIndices();
                         numPedra = scanner.nextInt();
                         jogo.jogador.escolherPedra(numPedra);
-                        jogo.jogar(jogo.jogador.getPedraAJogar(), "Esquerdo");
+                        jogo.jogar(jogo.jogador.getPedraAJogar(), "Esquerdo", i);
                         break;
                     }
                     case 2: {
-                        
                         int numPedra;
                         System.out.println("\nEscolha uma peça da sua mão para jogar: ");
                         jogo.jogador.printPedrasComIndices();
                         numPedra = scanner.nextInt();
                         jogo.jogador.escolherPedra(numPedra);
-                        jogo.jogar(jogo.jogador.getPedraAJogar(), "Direito");
+                        jogo.jogar(jogo.jogador.getPedraAJogar(), "Direito", i);
                         break;
                     }
                     case 3: {
@@ -63,6 +65,7 @@ public class App {
 
                 jogo.controle.alternarJogadorDaVez();
             }
+            i++;
         }
         scanner.close();
     }

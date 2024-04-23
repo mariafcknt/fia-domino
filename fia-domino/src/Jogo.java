@@ -53,8 +53,10 @@ public class Jogo {
         // primeiroAJogar();
     }
 
-    public void jogar(Pedra pedra, String lado){
-        if (lado == "Esquerdo"){
+    public void jogar(Pedra pedra, String lado, int i){
+        if (i == 0) {
+            tabuleiro.adicionarPrimeiraPedra(pedra);
+        } else if (lado == "Esquerdo"){
             tabuleiro.adicionarPedraEsquerda(pedra);
         } else {
             tabuleiro.adicionarPedraDireita(pedra);

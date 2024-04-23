@@ -12,27 +12,62 @@ public class Tabuleiro {
     }
 
     public boolean adicionarPedraEsquerda(Pedra pedra) {
+        // Primeiro, tente adicionar a pedra normalmente
         if (ladoEsquerdoTabuleiro == -1 || pedra.getNumDireito() == ladoEsquerdoTabuleiro) {
             pedrasTabuleiro.add(0, pedra);
             ladoEsquerdoTabuleiro = pedra.getNumEsquerdo();
-            System.out.println("Deu boa!!!");
             return true;
-        }
-        System.out.println("Deu ruim!!!");
-        System.out.println("Num direito pedra: " + pedra.getNumDireito());
-        System.out.println("Num esquerdo tabuleiro: " + ladoEsquerdoTabuleiro);
-        return false;
-    }
-
-    public boolean adicionarPedraDireita(Pedra pedra) {
-        if (ladoDireitoTabuleiro == -1 || pedra.getNumEsquerdo() == ladoDireitoTabuleiro) {
-            pedrasTabuleiro.add(pedra); // Adiciona a pedra no final da lista
-            ladoDireitoTabuleiro = pedra.getNumDireito();
-            return true;
+        } else {
+            // Se a pedra não puder ser adicionada, tente inverter os lados
+            pedra.inverterLados(); // Método para inverter os lados da pedra
+            
+            // Tente adicionar a pedra invertida
+            if (ladoEsquerdoTabuleiro == -1 || pedra.getNumDireito() == ladoEsquerdoTabuleiro) {
+                pedrasTabuleiro.add(0, pedra);
+                ladoEsquerdoTabuleiro = pedra.getNumEsquerdo();
+                return true;
+            }
+            
+            // Se ainda não for possível adicionar, reverta a inversão
+            pedra.inverterLados();
         }
         return false;
     }
     
+    public boolean adicionarPedraDireita(Pedra pedra) {
+        // Primeiro, tente adicionar a pedra normalmente
+        if (ladoDireitoTabuleiro == -1 || pedra.getNumEsquerdo() == ladoDireitoTabuleiro) {
+            pedrasTabuleiro.add(pedra);
+            ladoDireitoTabuleiro = pedra.getNumDireito();
+            return true;
+        } else {
+            // Se a pedra não puder ser adicionada, tente inverter os lados
+            pedra.inverterLados(); // Método para inverter os lados da pedra
+            
+            // Tente adicionar a pedra invertida
+            if (ladoDireitoTabuleiro == -1 || pedra.getNumEsquerdo() == ladoDireitoTabuleiro) {
+                pedrasTabuleiro.add(pedra);
+                ladoDireitoTabuleiro = pedra.getNumDireito();
+                return true;
+            }
+            
+            // Se ainda não for possível adicionar, reverta a inversão
+            pedra.inverterLados();
+        }
+        return false;
+    }
+    
+
+    public boolean adicionarPrimeiraPedra(Pedra pedra) {
+        if (pedra != null) {
+            pedrasTabuleiro.add(pedra);
+            ladoEsquerdoTabuleiro = pedra.getNumEsquerdo();
+            ladoDireitoTabuleiro = pedra.getNumDireito();
+            System.out.println("Lado direito da peça: " + pedra.getNumDireito());
+            return true;
+        }
+        return false;
+    }
 
     public void printTabuleiro() {
         System.out.println("---------------");
@@ -48,6 +83,8 @@ public class Tabuleiro {
         }
         // Após o loop, imprime uma nova linha
         System.out.println();
+        System.out.println("Lado direito do tabuleiro: " + getLadoDireitoTabuleiro());
+        System.out.println("Lado esquerdo do tabuleiro: " + getLadoEsquerdoTabuleiro());
         System.out.println("---------------\n");
     }
     

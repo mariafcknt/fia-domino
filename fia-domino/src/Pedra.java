@@ -3,10 +3,14 @@ public class Pedra {
     private int numDireito;
     private int numEsquerdo;
 
-    public Pedra(String nome, int ladoDireito, int ladoEsquerdo) {
+    public Pedra(String nome, int ladoEsquerdo, int ladoDireito) {
         this.nome = nome;
-        this.numDireito = ladoDireito;
         this.numEsquerdo = ladoEsquerdo;
+        this.numDireito = ladoDireito;
+    }
+
+    public void inverterLados() {
+        
     }
 
     public String getNome() {
